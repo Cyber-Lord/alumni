@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import AbstractBaseUser, AbstractUser
 
 
 class School(models.Model):
@@ -21,7 +22,7 @@ class School(models.Model):
     school_phone = models.CharField(max_length=15, blank=True, null=True)
     school_address = models.TextField()
     school_website = models.CharField(max_length=50)
-    school_type = models.CharField(choices=SCHOOL_TYPES)
+    school_type = models.CharField(max_length=255, choices=SCHOOL_TYPES)
 
     def __str__(self) -> str:
         return self.school_name
