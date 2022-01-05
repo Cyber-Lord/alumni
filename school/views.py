@@ -6,7 +6,6 @@ from rest_framework.permissions import IsAuthenticated
 from school.serializers import SchoolSerializer
 from .models import School
 
-# Create your views here.
 
 class SchoolViewSet(ModelViewSet):
     queryset = School.objects.all()
