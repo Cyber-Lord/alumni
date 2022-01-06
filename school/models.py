@@ -6,7 +6,6 @@ from django.db.models.base import Model
 from . constants import GENDER, SCHOOL_TYPES
 
 class School(models.Model):
-
     school_name = models.CharField(max_length=255)
     school_motto = models.CharField(max_length=255)
     school_logo = models.ImageField(upload_to='logos/', blank=False)
@@ -33,10 +32,12 @@ class Student(models.Model):
     lga = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
     dob = models.DateField()
+    role = models.CharField(max_length=255)
+    class_of = models.DateField()
     quote = models.TextField()
     best_friend = models.CharField(max_length=255)
     best_moment = models.TextField()
-    school = models.ForeignKey(School, on_delete=models.CASCADE)
+    school = models.ForeignKey(School, on_delete=models.CASCADE, related_name='student_school')
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be \
          entered in the format: '+234 ...'")
     phone_no = models.CharField(validators=[phone_regex], max_length=15, blank=False)
