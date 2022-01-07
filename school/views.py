@@ -11,7 +11,7 @@ class SchoolViewSet(ModelViewSet):
     http_method_names = ['post', 'get']
     queryset = School.objects.all()
     serializer_class = SchoolSerializer
-    permission_classes = [IsAuthenticated]
+    
 
 class StudentViewSet(ModelViewSet):
     queryset = Student.objects.all()

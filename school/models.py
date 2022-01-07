@@ -18,11 +18,7 @@ class School(models.Model):
         return self.school_name
 
 class Student(models.Model):
-    email = models.EmailField(
-        verbose_name = 'email_address',
-        max_length=255,
-        unique=True,
-    )
+    email = models.EmailField(max_length=255,unique=True)
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     other_name = models.CharField(max_length=255, null=True, blank=True)
@@ -33,9 +29,11 @@ class Student(models.Model):
     state = models.CharField(max_length=50)
     dob = models.DateField()
     role = models.CharField(max_length=255)
-    class_of = models.DateField()
+    department = models.CharField(max_length=255)
     quote = models.TextField()
+    fav_teacher = models.CharField(max_length=255)
     best_friend = models.CharField(max_length=255)
+    dream_job = models.CharField(max_length=255)
     best_moment = models.TextField()
     school = models.ForeignKey(School, on_delete=models.CASCADE, related_name='student_school')
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be \
