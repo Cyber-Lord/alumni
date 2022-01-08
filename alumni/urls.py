@@ -21,9 +21,11 @@ from rest_framework_simplejwt.views import (
 )
 
 urlpatterns = [
+    path('alumni/', include('school.urls')),
+    path('poll/', include('poll.urls')),
+    # path('event/', include('events.url')),
     path('admin/', admin.site.urls),
     path('auth/', include('djoser.urls')),
-    path('alumni/', include('school.urls')),
     path('school/api/', include('rest_framework.urls')),
     path('__debug__/', include('debug_toolbar.urls')),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),

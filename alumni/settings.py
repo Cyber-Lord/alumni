@@ -96,7 +96,7 @@ DJOSER = {
         'current_user': 'core.serializers.UserSerializer'
     }
 }
-AUTH_USER_MODEL = 'core.User'
+
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=5),
     'AUTH_HEADER_TYPES': ('JWT',),
